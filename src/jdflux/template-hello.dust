@@ -1,0 +1,3 @@
+<li>
+   	<span>{n.first}</span> <span>{n.last}</span> <span>{n.suffix}</span>
+</li>

@@ -1,0 +1,32 @@
+html
+  head
+  body
+    center
+      h1 10000 names (first, last, suffix) render tests for jdflux and inferno
+      hr      
+      h2 $ npm start (runs express 3000 and webpackserver port 8080)
+      h2 DEV builds with webpack and live reload on localhost port 8080 
+       div with SSR (Server Side Rendering) and client render delay 2 sec.
+        div
+          a(href='http://localhost:8080/inferno?clientRenderDelay=2000' target="inferno") http://localhost:8080/inferno
+          span=" vs "
+          a(href='http://localhost:8080/jdflux?clientRenderDelay=2000' target="jdflux") http://localhost:8080/jdflux
+       div NO SSR and client render delay 2 sec.
+        div
+          a(href='http://localhost:8080/inferno?noSSR&clientRenderDelay=2000' target="inferno") http://localhost:8080/inferno?noSSR
+          span=" vs "
+          a(href='http://localhost:8080/jdflux?noSSR&clientRenderDelay=2000' target="jdflux") http://localhost:8080/jdflux?noSSR   
+      hr
+      h2 $ npm run build (builds production scripts to `public/js/bundles/`)
+
+      h2 PRODUCTION builds from localhost port 3000
+       div with SSR (Server Side Rendering) and client render delay 2 sec.
+        div
+          a(href='http://localhost:3000/inferno?clientRenderDelay=2000' target="inferno") http://localhost:3000/inferno
+          span=" vs "
+          a(href='http://localhost:3000/jdflux?clientRenderDelay=2000' target="jdflux") http://localhost:3000/jdflux
+       div NO SSR and client render delay 2 sec.
+        div
+          a(href='http://localhost:3000/inferno?noSSR&clientRenderDelay=2000' target="inferno") http://localhost:3000/inferno?noSSR
+          span=" vs "
+          a(href='http://localhost:3000/jdflux?noSSR&clientRenderDelay=2000' target="jdflux") http://localhost:3000/jdflux?noSSR             

@@ -1,0 +1,13 @@
+html
+  head
+    title=lib + " render test"
+    script.
+      testData=!{JSON.stringify(testData).replace(/<\//g, "<\\/")}
+      clientRenderDelay=!{JSON.stringify(clientRenderDelay).replace(/<\//g, "<\\/")}
+  body
+    h2="Rendering page with: " + lib
+    h2="Server Render Time: " + timeSSR + "ms" + " | Client Render Time: "
+      b#timeclient="waiting..."
+    div#app!=AppHTML
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js")
+    script(src="/js/build/" + lib + "-app.js")      

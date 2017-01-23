@@ -1,0 +1,10 @@
+<div id="app">
+	<div>
+		Saying Hello to <b>{names.length}</b> names: 
+		<ul>
+			{#names}
+				{> "template-hello" n=. /}
+			{/names}
+		</ul>
+	</div>
+</div>
