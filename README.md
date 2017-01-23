@@ -1,4 +1,4 @@
-This project is a test of 2 frameworks inferno vs jdflux
+This project is a test of 2 frameworks inferno vs jdflux with SSR (server side rendering)!
 ### do `npm install`
 
 ### then `npm start`
