@@ -1,8 +1,10 @@
-const Inferno = require('inferno');
-const InfernoServer = require('inferno-server');
+import Inferno from '../lib/inferno';
+import {renderToString} from 'inferno-server';
 import Component from 'inferno-component';
-const App = require('./App.jsx').App;
+import {App} from './App.jsx';
+
+Inferno.options.noSSRNormalizeEnabled = true;
 
 module.exports = (props) => { 
-	return  InfernoServer.renderToString(<App names={props.names} isServer={true} />);
+	return  renderToString(<App names={props.names} isServer={true} />);
 }

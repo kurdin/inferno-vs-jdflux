@@ -1,4 +1,4 @@
-import Inferno from 'inferno';
+import Inferno from '../lib/inferno';
 import Component from 'inferno-component';
 import h from 'inferno-hyperscript';
 
@@ -23,7 +23,7 @@ class App extends Component {
         {
           names.map(
             (name) => (
-              <Name name={name} />
+              <Name name={name}/>
           ))
         }          
         </ul>

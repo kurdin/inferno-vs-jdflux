@@ -9,10 +9,10 @@ $$.templates.load('template-hello', require('./template-hello.dust'));
 module.exports = $$.component({
 
 	component: {
-		name: 'Main Component',
-		type: 'static',
+		name: 'Main Component'
+		// type: 'static',
 		// ,type: 'self_updated'
-		renderType: 'replace'
+		,renderType: 'replace'
 	},
 
 	// components: {
