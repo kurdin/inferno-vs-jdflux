@@ -48,7 +48,7 @@ if (env['process.env'].NODE_ENV !== '"production"') {
 // The development configuration is different and lives in a separate file.
 module.exports = {
   // Don't attempt to continue if there are any errors.
-  bail: true,
+  // bail: true,
   // We generate sourcemaps in production. This is slow but gives good results.
   // You can exclude the *.map files from the build during deployment.
   // devtool: 'source-map',
@@ -66,6 +66,11 @@ module.exports = {
       require.resolve('./performance-now'),
       paths.appIndexJs
     ],
+    'angular2-app': [
+      './src/angular2/polyfills.browser.ts',
+      './src/angular2/vendor.browser.ts',
+      './src/angular2/index.ts'
+    ],    
     'jdflux-app': [
       require.resolve('./polyfills'),
       require.resolve('./performance-now'),
@@ -115,7 +120,7 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx', '']
+    extensions: ['.js', '.json', '.jsx', '.ts', '']
   },
   
   module: {
@@ -157,9 +162,27 @@ module.exports = {
       // },
       // Process JS with Babel.
       {
+      test: /\.ts$/,
+          // use: [
+            // '@angularclass/hmr-loader?pretty=true&prod=false',
+            // 'awesome-typescript-loader',
+            // 'angular2-template-loader',
+            // 'angular-router-loader'
+          // ],
+          loaders: [
+            'babel-loader?presets[]=es2015',
+            // '@angularclass/hmr-loader?pretty=true&prod=false',
+            'awesome-typescript-loader'
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+      },      
+      {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel-loader',
+        query: {
+          presets: ['es2015']
+        },
         exclude: /node_modules/
       },
       // The notation here is somewhat confusing.

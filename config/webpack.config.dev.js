@@ -59,6 +59,11 @@ module.exports = {
     // changing JS code would still trigger a refresh.
     paths.appIndexJs,
     ],
+    'angular2-app': [
+      '../src/angular2/polyfills.browser.ts',
+      '../src/angular2/vendor.browser.ts',
+      '../src/angular2/index.ts'
+    ],
     'jdflux-app': [
     // Include an alternative client for WebpackDevServer. A client's job is to
     // connect to WebpackDevServer by a socket and get notified about changes.
@@ -113,7 +118,7 @@ module.exports = {
     // We also include JSX as a common component filename extension to support
     // some tools, although we do not recommend using it, see:
     // https://github.com/facebookincubator/create-react-app/issues/290
-    extensions: ['.js', '.json', '.jsx', '']
+    extensions: ['.js', '.json', '.jsx', '.ts', '']
   },
   
   module: {
@@ -155,6 +160,20 @@ module.exports = {
       //     name: 'static/media/[name].[hash:8].[ext]'
       //   }
       // },
+      {
+      test: /\.ts$/,
+          // use: [
+            // '@angularclass/hmr-loader?pretty=true&prod=false',
+            // 'awesome-typescript-loader',
+            // 'angular2-template-loader',
+            // 'angular-router-loader'
+          // ],
+          loaders: [
+            // '@angularclass/hmr-loader?pretty=true&prod=false',
+            'awesome-typescript-loader'
+          ],
+          exclude: [/\.(spec|e2e)\.ts$/]
+      },
       { test: /\.dust$/, loader: 'dust-template-loader'},
       // Process JS with Babel.
       {
@@ -229,6 +248,9 @@ module.exports = {
             __DEBUG__: true,
             __DEV__: true,
             __PRODUCTION__: false,
+            'ENV': JSON.stringify(
+                process.env.NODE_ENV || 'development'
+            ),            
             'NODE_ENV': JSON.stringify(
                 process.env.NODE_ENV || 'development'
             ),            

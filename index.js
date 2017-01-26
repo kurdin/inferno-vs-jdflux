@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 
 app.get('/:lib', function (req, res) {
 	let lib = req.params.lib;
-	if (lib !== 'jdflux' && lib !== 'inferno') return;
+	if (lib !== 'jdflux' && lib !== 'inferno' && lib !== 'angular2') return;
 	let testData = [];
 
 	[...Array(totalNames)].forEach((_, i) => {
